@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS ARENA — Next-Gen Gaming & Esports</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <meta name="description"
+    content="NEXUS ARENA — Next-Gen Gaming, Esports, Tournaments, Café & Pro Store. Book your gaming session now!" />
+  <meta name="keywords" content="cyber cafe, gaming arena, esports, PS5, PC gaming, VR, tournaments, India" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://nexusarena.in/" />
+  <meta property="og:title"       content="NEXUS ARENA — Next-Gen Gaming & Esports" />
+  <meta property="og:description" content="India's most premium cyber café — High-End PCs, PS5, Xbox, VR, Mobile Gaming, Tournaments & Café. Open 24/7." />
+  <meta property="og:image"       content="https://nexusarena.in/img/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="NEXUS ARENA — Next-Gen Gaming & Esports" />
+  <meta name="twitter:description" content="India's most premium cyber café — High-End PCs, PS5, Xbox, VR, Mobile Gaming, Tournaments & Café. Open 24/7." />
+  <meta name="twitter:image"       content="https://nexusarena.in/img/og-cover.jpg" />
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NEXUS ARENA",
+    "description": "India's most premium gaming arena featuring High-End PCs, PS5, Xbox, VR, Mobile Gaming, Tournaments and Café.",
+    "url": "https://nexusarena.in",
+    "telephone": "+91-98765-43210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Level 3, Nexus Mall, Whitefield",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "postalCode": "560066",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "₹₹"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css?v=2" />
+  <link rel="stylesheet" href="css/sections.css?v=15" />
+  <link rel="stylesheet" href="css/overrides.css?v=2" />
+  <link rel="stylesheet" href="css/nexus-ai.css" />
+  <!-- Bootstrap 5 GRID ONLY (no theme reset) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css" rel="stylesheet">
+  <!-- Tournament Claymorphic Styles -->
+  <style>
+    /* ── Tournament Claymorphic Styles ── */
+    #tournaments, #leaderboards { position: relative; z-index: 1; }
+    .t-stats-banner {
+      display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap;
+      gap: 1rem; background: rgba(255,255,255,0.02); backdrop-filter: blur(20px);
+      border-radius: 22px; border: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem; margin-bottom: 2rem;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.06);
+    }
+    .t-stat-item { text-align: center; }
+    .t-stat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: #859398; margin-bottom: 4px; }
+    .t-stat-value { font-family: 'Orbitron', 'Rajdhani', sans-serif; font-size: 2rem;
+      font-weight: 900; line-height: 1; }
+    .t-stat-divider { width: 1px; height: 50px; background: rgba(255,255,255,0.07); }
+    /* Filter chips */
+    .t-filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .t-filter-chip { background: rgba(255,255,255,0.03); color: #859398; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px; padding: 0.45rem 1rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: all .2s;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.4); }
+    .t-filter-chip.active, .t-filter-chip:hover { border-color: #00d4ff; color: #00d4ff;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.4), 0 0 15px rgba(0,212,255,0.2); }
+    /* Clay Cards */
+    .t-clay-card { background: rgba(255,255,255,0.025); backdrop-filter: blur(20px);
+      border-radius: 26px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden;
+      display: flex; flex-direction: column; height: 100%; cursor: pointer;
+      transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .3s;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.55), inset 0 2px 0 rgba(255,255,255,0.05); }
+    .t-clay-card:hover { transform: translateY(-10px) scale(1.01); border-color: rgba(255,255,255,0.15); }
+    .t-clay-card.card-cyan:hover  { box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(0,212,255,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    .t-clay-card.card-gold:hover  { box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(255,215,0,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    .t-clay-card.card-orange:hover{ box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(255,153,0,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    .t-clay-card.card-red:hover   { box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(255,70,85,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    .t-clay-card.card-purple:hover{ box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(124,58,237,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    .t-clay-card.card-green:hover { box-shadow: 12px 12px 0 rgba(0,0,0,.6), 0 0 35px rgba(0,255,136,.25), inset 0 2px 0 rgba(255,255,255,.05); }
+    /* Card image */
+    .t-card-img { height: 180px; position: relative; overflow: hidden; flex-shrink: 0; }
+    .t-card-img img { width: 100%; height: 100%; object-fit: cover;
+      transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+    .t-clay-card:hover .t-card-img img { transform: scale(1.08); }
+    .t-card-img-fade { position: absolute; inset: 0;
+      background: linear-gradient(to top, #0e1417 0%, transparent 60%); }
+    /* Badge */
+    .t-game-badge { position: absolute; top: .9rem; left: .9rem;
+      padding: .3rem .8rem; border-radius: 999px; font-size: .7rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase; display: flex; align-items: center; gap: .4rem;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.4); }
+    .t-pulse-dot { width: 7px; height: 7px; border-radius: 50%;
+      animation: tPulse 1.4s ease-in-out infinite; }
+    @keyframes tPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+    .badge-cyan   { background:#00d4ff; color:#001a21; } .badge-cyan .t-pulse-dot   { background:#001a21; }
+    .badge-gold   { background:#ffd700; color:#1a1000; } .badge-gold .t-pulse-dot   { background:#1a1000; }
+    .badge-orange { background:#ff9900; color:#1a0d00; } .badge-orange .t-pulse-dot { background:#1a0d00; }
+    .badge-red    { background:#ff4655; color:#fff;    } .badge-red .t-pulse-dot    { background:#fff; }
+    .badge-purple { background:#7c3aed; color:#fff;    } .badge-purple .t-pulse-dot { background:#fff; }
+    .badge-green  { background:#00ff88; color:#001a0d; } .badge-green .t-pulse-dot  { background:#001a0d; }
+    /* Card Body */
+    .t-card-body { padding: 1.2rem 1.3rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: .9rem; }
+    .t-card-title { font-size: 1.15rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .04em; margin: 0; transition: color .3s; }
+    .card-cyan .t-card-title   { color: #00d4ff; }
+    .card-gold .t-card-title   { color: #ffd700; }
+    .card-orange .t-card-title { color: #ff9900; }
+    .card-red .t-card-title    { color: #ff4655; }
+    .card-purple .t-card-title { color: #c4b5fd; }
+    .card-green .t-card-title  { color: #00ff88; }
+    .t-clay-card:hover .t-card-title { color: #fff; }
+    /* Countdown */
+    .t-countdown-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; padding: .65rem; text-align: center;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.4), inset 0 2px 0 rgba(255,255,255,.04); }
+    .t-countdown-value { font-family: 'Orbitron','Rajdhani',sans-serif; font-size: 1.4rem;
+      font-weight: 700; letter-spacing: .1em; color: #fff;
+      text-shadow: 0 0 15px rgba(255,255,255,.25); }
+    /* Info grid */
+    .t-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+    .t-info-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: .6rem .7rem;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04); }
+    .t-info-label { font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #859398; margin-bottom: .2rem; }
+    .t-info-value { font-size: .95rem; font-weight: 800; }
+    .t-info-value.green { color: #00ff88; }
+    .t-info-value.white { color: #fff; }
+    /* Progress */
+    .t-progress-wrap { }
+    .t-progress-label { display: flex; justify-content: space-between; font-size: .68rem;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; color: #859398; }
+    .t-progress-track { height: 7px; background: rgba(255,255,255,0.06); border-radius: 999px;
+      overflow: hidden; box-shadow: inset 2px 2px 4px rgba(0,0,0,.4); }
+    .t-progress-fill { height: 100%; border-radius: 999px; transition: width 1s ease; }
+    .card-cyan .t-progress-fill   { background:#00d4ff; box-shadow:0 0 12px rgba(0,212,255,.6); }
+    .card-gold .t-progress-fill   { background:#ffd700; box-shadow:0 0 12px rgba(255,215,0,.6); }
+    .card-orange .t-progress-fill { background:#ff9900; box-shadow:0 0 12px rgba(255,153,0,.6); }
+    .card-red .t-progress-fill    { background:#ff4655; box-shadow:0 0 12px rgba(255,70,85,.6); }
+    .card-purple .t-progress-fill { background:#7c3aed; box-shadow:0 0 12px rgba(124,58,237,.6); }
+    .card-green .t-progress-fill  { background:#00ff88; box-shadow:0 0 12px rgba(0,255,136,.6); }
+    /* Actions */
+    .t-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: auto; }
+    .t-btn-register, .t-btn-bracket { border-radius: 12px; padding: .6rem .5rem;
+      font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      cursor: pointer; transition: all .2s; }
+    .t-btn-register { border: none; color: #000;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.45); }
+    .t-btn-register:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 rgba(0,0,0,.5); }
+    .card-cyan .t-btn-register   { background: #00d4ff; }
+    .card-gold .t-btn-register   { background: #ffd700; }
+    .card-orange .t-btn-register { background: #ff9900; }
+    .card-red .t-btn-register    { background: #ff4655; color: #fff; }
+    .card-purple .t-btn-register { background: #7c3aed; color: #fff; }
+    .card-green .t-btn-register  { background: #00ff88; }
+    .t-btn-bracket { background: transparent; color: #859398;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 4px 4px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04); }
+    .t-btn-bracket:hover { border-color: rgba(255,255,255,0.3); color: #fff;
+      transform: translateY(-2px); box-shadow: 6px 6px 0 rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04); }
+    /* Leaderboard */
+    .t-lb-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 22px; overflow: hidden; margin-top: 1.5rem;
+      box-shadow: 8px 8px 0 rgba(0,0,0,.5), inset 0 2px 0 rgba(255,255,255,.04); }
+    .t-lb-header { background: rgba(0,212,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: .65rem 1.2rem; display: grid; grid-template-columns: 50px 1fr 90px 90px; gap: .5rem;
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #859398; }
+    .t-lb-row { padding: .85rem 1.2rem; display: grid;
+      grid-template-columns: 50px 1fr 90px 90px; gap: .5rem; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05); transition: background .2s; }
+    .t-lb-row:last-child { border-bottom: none; }
+    .t-lb-row:hover { background: rgba(255,255,255,0.02); }
+    .t-lb-rank { font-size: 1rem; font-weight: 900; }
+    .t-lb-rank.gold   { color: #ffd700; text-shadow: 0 0 12px rgba(255,215,0,.5); }
+    .t-lb-rank.silver { color: #c0c0c0; }
+    .t-lb-rank.bronze { color: #cd7f32; }
+    .t-lb-player { display: flex; align-items: center; gap: .6rem; }
+    .t-lb-avatar { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; box-shadow: 3px 3px 0 rgba(0,0,0,.4); }
+    .t-lb-name { font-weight: 700; font-size: .88rem; }
+    .t-lb-clan { font-size: .65rem; color: #859398; }
+    .t-lb-wins { color: #00d4ff; font-weight: 700; text-align: right; font-size: .85rem; }
+    .t-lb-xp   { color: #00ff88; font-weight: 700; text-align: right; font-size: .85rem; }
+    @media(max-width:768px) {
+      .t-stat-divider { display: none; }
+      .t-lb-header, .t-lb-row { grid-template-columns: 40px 1fr 70px; }
+      .t-lb-xp { display: none; }
+    }
+  </style>
+
+  <!-- Tailwind for Stitch Cafe -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      }
+    }
+  </script>
+
+</head>
+
+<body class="noise-overlay">
+
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══════════════════════════════════════════════
+     PAGE LOADER
+══════════════════════════════════════════════ -->
+  <div id="page-loader">
+    <div class="loader-logo glitch" data-text="NEXUS ARENA">NEXUS ARENA</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-text">Initializing Gaming Systems...</div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Floating Ambient Particles -->
+  <div id="ambient-particles" style="position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;"></div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scroll to Top -->
+  <button id="scroll-top" title="Scroll to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <!-- ══════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <div class="nav-logo-icon"><i class="fas fa-bolt"></i></div>
+        <div class="logo-text"><span class="logo-nexus">NEXUS</span><span class="logo-arena">ARENA</span></div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#gaming-zones">Arena</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#tournaments">Esports</a></li>
+        <li><a href="#cafe-menu">Caf&#233;</a></li>
+        <li><a href="store/index.html">Pro Store</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="nav-live-badge hide-mobile">
+          <span class="live-dot"></span>
+          <span id="live-visitors">1,247</span> Online
+        </div>
+        <!-- Login Button (shown when logged out) -->
+        <button class="btn btn-ghost btn-sm" id="nav-login-btn" style="display:flex;">
+          <i class="fas fa-sign-in-alt"></i>
+          <span class="hide-mobile">Login</span>
+        </button>
+        <!-- User Button (shown when logged in) -->
+        <button class="btn btn-ghost btn-sm" id="nav-user-btn" style="display:none;">
+          <i class="fas fa-user-astronaut"></i>
+          <span class="hide-mobile" id="nav-username">Dashboard</span>
+        </button>
+        <button class="btn btn-primary btn-sm" id="nav-book-btn">
+          <i class="fas fa-calendar-plus"></i>
+          <span class="hide-mobile">Book Now</span>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#hero"><i class="fas fa-home"></i> Home</a>
+    <a href="#gaming-zones"><i class="fas fa-gamepad"></i> Arena</a>
+    <a href="#membership"><i class="fas fa-crown"></i> Membership</a>
+    <a href="#tournaments"><i class="fas fa-trophy"></i> Esports</a>
+    <a href="#cafe-menu"><i class="fas fa-utensils"></i> Café</a>
+    <a href="store/index.html"><i class="fas fa-store"></i> Pro Store</a>
+    <a href="#events"><i class="fas fa-calendar-alt"></i> Events</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════ -->
+  <main id="main-content">
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hero-rings">
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="live-dot"></span>
+        India's #1 Gaming Arena &nbsp;•&nbsp; Est. 2020
+      </div>
+
+
+
+
+      <h1 class="hero-title">
+        <span class="brand-name">NEXUS</span>
+        <span class="arena-text">ARENA</span>
+      </h1>
+
+      <p class="hero-tagline">
+        <span id="hero-tagline" class="typing-text"></span>
+      </p>
+
+
+
+
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg"
+          onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+          <i class="fas fa-calendar-plus"></i> Book A Seat
+        </button>
+        <button class="btn btn-outline btn-lg"
+          onclick="document.getElementById('gaming-zones').scrollIntoView({behavior:'smooth'})">
+          <i class="fas fa-gamepad"></i> Explore Zones
+        </button>
+        <button class="btn btn-ghost btn-lg"
+          onclick="document.getElementById('tournaments').scrollIntoView({behavior:'smooth'})"
+          style="width:100%;max-width:320px;margin-top:4px;">
+          <i class="fas fa-trophy"></i> Join Tournament
+        </button>
+      </div>
+
+      <div class="hero-micro-status">
+        <span><b></b> Systems Online</span><span>Next tournament check-in <strong>18:30</strong></span><span>50+ high-end rigs</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <i class="fas fa-chevron-down"></i>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     GAMING ZONES
+══════════════════════════════════════════════ -->
+  <section id="gaming-zones">
+    <div class="container">
+      <h2 class="section-title glitch" data-text="GAMING ZONES">GAMING ZONES</h2>
+      <p class="section-subtitle">State-of-the-Art Setups for Every Gamer</p>
+
+      <div class="grid-3 stagger">
+
+        <!-- PC Zone -->
+        <div class="zone-card card-3d" style="--zone-color:#00d4ff;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.2);">💻</div>
+            <div>
+              <div class="zone-title">High-End Gaming PCs</div>
+              <div class="zone-subtitle">50 Stations Available</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-microchip"></i> RTX 5090 / RTX 5080 GPU</div>
+            <div class="zone-spec-item"><i class="fas fa-cpu"></i> Intel Ultra 9 / Ryzen 9</div>
+            <div class="zone-spec-item"><i class="fas fa-memory"></i> 64GB DDR5 RAM</div>
+            <div class="zone-spec-item"><i class="fas fa-desktop"></i> 360Hz IPS Monitor</div>
+            <div class="zone-spec-item"><i class="fas fa-keyboard"></i> Mechanical Keyboard + RGB</div>
+            <div class="zone-spec-item"><i class="fas fa-headphones"></i> Premium Gaming Headset</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">Valorant</span>
+            <span class="game-tag">CS2</span>
+            <span class="game-tag">PUBG PC</span>
+            <span class="game-tag">Apex Legends</span>
+            <span class="game-tag">GTA V</span>
+            <span class="game-tag">Dota 2</span>
+            <span class="game-tag">League of Legends</span>
+            <span class="game-tag">Fortnite</span>
+            <span class="game-tag">+ More</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-cyan">₹80</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn btn-primary btn-sm js-book-now">Book PC Seat</button>
+          </div>
+        </div>
+
+        <!-- PS5 Zone -->
+        <div class="zone-card card-3d" style="--zone-color:#7c3aed;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.2);">🎮</div>
+            <div>
+              <div class="zone-title">PlayStation 5 Zone</div>
+              <div class="zone-subtitle">20 PS5 Consoles</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-tv"></i> 65" 4K OLED Display</div>
+            <div class="zone-spec-item"><i class="fas fa-headphones"></i> 3D Audio Support</div>
+            <div class="zone-spec-item"><i class="fas fa-gamepad"></i> DualSense Haptic Feedback</div>
+            <div class="zone-spec-item"><i class="fas fa-tachometer-alt"></i> 120FPS Gaming</div>
+            <div class="zone-spec-item"><i class="fas fa-couch"></i> Premium Gaming Couch</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">FC 26</span>
+            <span class="game-tag">Tekken 8</span>
+            <span class="game-tag">Spider-Man 2</span>
+            <span class="game-tag">God of War</span>
+            <span class="game-tag">Gran Turismo 7</span>
+            <span class="game-tag">Mortal Kombat</span>
+            <span class="game-tag">WWE 2K</span>
+            <span class="game-tag">UFC 5</span>
+            <span class="game-tag">+ More</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-purple">₹100</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn-zone btn-zone-ps5 js-book-now">Book PS5 Seat</button>
+          </div>
+        </div>
+
+        <!-- Xbox Zone -->
+        <div class="zone-card card-3d" style="--zone-color:#00ff88;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(0,255,136,0.1);border-color:rgba(0,255,136,0.2);">🕹️</div>
+            <div>
+              <div class="zone-title">Xbox Series X Zone</div>
+              <div class="zone-subtitle">10 Xbox Stations</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-tv"></i> 55" 4K HDR Display</div>
+            <div class="zone-spec-item"><i class="fas fa-star"></i> Xbox Game Pass Ultimate</div>
+            <div class="zone-spec-item"><i class="fas fa-gamepad"></i> Elite Controller Series 2</div>
+            <div class="zone-spec-item"><i class="fas fa-bolt"></i> Quick Resume Feature</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">Halo Infinite</span>
+            <span class="game-tag">Forza Horizon 5</span>
+            <span class="game-tag">Gears of War</span>
+            <span class="game-tag">Sea of Thieves</span>
+            <span class="game-tag">Minecraft</span>
+            <span class="game-tag">Flight Simulator</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-green">₹90</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn-zone btn-zone-xbox js-book-now">Book Xbox Seat</button>
+          </div>
+        </div>
+
+        <!-- Nintendo Switch -->
+        <div class="zone-card card-3d" style="--zone-color:#ff006e;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(255,0,110,0.1);border-color:rgba(255,0,110,0.2);">🕹️</div>
+            <div>
+              <div class="zone-title">Nintendo Switch</div>
+              <div class="zone-subtitle">6 Switch Stations</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-users"></i> 4-Player Local Multiplayer</div>
+            <div class="zone-spec-item"><i class="fas fa-tv"></i> Tabletop & TV Mode</div>
+            <div class="zone-spec-item"><i class="fas fa-child"></i> Family Friendly Zone</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">Mario Kart 8</span>
+            <span class="game-tag">Zelda: TotK</span>
+            <span class="game-tag">Super Smash Bros</span>
+            <span class="game-tag">Animal Crossing</span>
+            <span class="game-tag">Pokémon Scarlet</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-pink">₹60</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn-zone btn-zone-switch js-book-now">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Mobile Arena -->
+        <div class="zone-card card-3d" style="--zone-color:#ffd700;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.2);">📱</div>
+            <div>
+              <div class="zone-title">Mobile Gaming Arena</div>
+              <div class="zone-subtitle">30 Dedicated Booths</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-charging-station"></i> Fast Charging Stations</div>
+            <div class="zone-spec-item"><i class="fas fa-wifi"></i> 1Gbps Dedicated Wi-Fi</div>
+            <div class="zone-spec-item"><i class="fas fa-gamepad"></i> Gaming Triggers & Controllers</div>
+            <div class="zone-spec-item"><i class="fas fa-fan"></i> Phone Cooling Fans</div>
+            <div class="zone-spec-item"><i class="fas fa-video"></i> Tournament Streaming Setup</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">BGMI</span>
+            <span class="game-tag">Free Fire MAX</span>
+            <span class="game-tag">COD Mobile</span>
+            <span class="game-tag">Clash Royale</span>
+            <span class="game-tag">Brawl Stars</span>
+            <span class="game-tag">Pokémon Unite</span>
+            <span class="game-tag">Mobile Legends</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-gold">₹50</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn-zone btn-zone-mobile js-book-now">Book Mobile Booth</button>
+          </div>
+        </div>
+
+        <!-- VR Zone -->
+        <div class="zone-card card-3d" style="--zone-color:#ff6b00;animation:rgb-border 3s linear infinite;">
+          <div class="zone-header">
+            <div class="zone-icon" style="background:rgba(255,107,0,0.1);border-color:rgba(255,107,0,0.2);">🥽</div>
+            <div>
+              <div class="zone-title">VR Experience Zone</div>
+              <div class="zone-subtitle">8 VR Stations — Premium</div>
+            </div>
+          </div>
+          <div class="zone-specs">
+            <div class="zone-spec-item"><i class="fas fa-vr-cardboard"></i> Meta Quest 3 & PSVR2</div>
+            <div class="zone-spec-item"><i class="fas fa-expand-arrows-alt"></i> Full Room-Scale VR</div>
+            <div class="zone-spec-item"><i class="fas fa-headphones-alt"></i> Spatial Audio System</div>
+            <div class="zone-spec-item"><i class="fas fa-shield-alt"></i> Sanitized After Each Use</div>
+          </div>
+          <div class="zone-games">
+            <span class="game-tag">Beat Saber</span>
+            <span class="game-tag">Half-Life: Alyx</span>
+            <span class="game-tag">Superhot VR</span>
+            <span class="game-tag">Arizona Sunshine</span>
+            <span class="game-tag">Pistol Whip</span>
+          </div>
+          <div class="zone-footer">
+            <div><span class="zone-price zone-price-orange">&#8377;150</span><span class="zone-price-unit"> /hr</span></div>
+            <button class="btn-zone btn-zone-vr js-book-now" data-platform="vr">Book VR Session</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     ONLINE BOOKING — 6-STEP ENHANCED
+══════════════════════════════════════════════ -->
+  <section id="booking" style="background:radial-gradient(ellipse at center, rgba(0,212,255,0.05) 0%, var(--bg-primary) 70%);">
+    <div class="container">
+      <h2 class="section-title reveal">BOOK YOUR SESSION</h2>
+      <p class="section-subtitle">Reserve your gaming seat in under 2 minutes</p>
+
+      <!-- 6 Steps Progress Bar -->
+      <!-- 6 Steps Progress Bar -->
+      <div class="booking-steps" id="booking-steps">
+        <div class="step active"><div class="step-num">1</div><div class="step-label">Platform</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-label">Date &amp; Time</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-label">Seat Map</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-label">Duration</div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-label">Details</div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-label">Pay</div></div>
+      </div>
+
+      <div class="booking-layout-grid">
+        <div class="booking-panel reveal">
+          <div id="booking-success" style="display:none;"></div>
+
+          <div class="booking-step-content active">
+            <h3 class="bstep-title"><i class="fas fa-desktop"></i> Choose Platform</h3>
+            <div class="platform-grid">
+              <button class="platform-btn" data-platform="pc" data-price="80"><i class="fas fa-desktop"></i>Gaming PC<br><small>&#8377;80/hr</small></button>
+              <button class="platform-btn" data-platform="ps5" data-price="100"><i class="fas fa-gamepad"></i>PlayStation 5<br><small>&#8377;100/hr</small></button>
+              <button class="platform-btn" data-platform="xbox" data-price="90"><i class="fab fa-xbox"></i>Xbox Series X<br><small>&#8377;90/hr</small></button>
+              <button class="platform-btn" data-platform="mobile" data-price="50"><i class="fas fa-mobile-alt"></i>Mobile Booth<br><small>&#8377;50/hr</small></button>
+              <button class="platform-btn" data-platform="vr" data-price="150"><i class="fas fa-vr-cardboard"></i>VR Zone<br><small>&#8377;150/hr</small></button>
+              <button class="platform-btn" data-platform="switch" data-price="60"><i class="fas fa-gamepad"></i>Nintendo Switch<br><small>&#8377;60/hr</small></button>
+            </div>
+            <div class="booking-nav"><div></div>
+              <button class="btn btn-primary" onclick="goToStep(2)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-step-content">
+            <h3 class="bstep-title"><i class="fas fa-calendar"></i> Date &amp; Time</h3>
+            <div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="book-date" /></div>
+            <div class="form-group"><label class="form-label">Time Slot</label>
+              <select class="form-input form-select" id="book-time">
+                <option value="">Select a time</option>
+                <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+                <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+                <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+                <option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option>
+                <option>10:00 PM</option><option>11:00 PM</option>
+              </select>
+            </div>
+            <div class="booking-nav">
+              <button class="btn btn-ghost" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="goToStep(3)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-step-content">
+            <h3 class="bstep-title"><i class="fas fa-map"></i> Select Your Seat</h3>
+            <div class="seat-legend">
+              <span><span class="seat-legend-dot" style="background:#00ff88;box-shadow:0 0 8px #00ff88;"></span> Available</span>
+              <span><span class="seat-legend-dot" style="background:#ff006e;"></span> Booked</span>
+              <span><span class="seat-legend-dot" style="background:#ff6b00;"></span> Reserved</span>
+              <span><span class="seat-legend-dot" style="background:#7c3aed;"></span> Playing</span>
+              <span><span class="seat-legend-dot" style="background:#555;"></span> Maintenance</span>
+            </div>
+            <div id="seat-map-container" style="min-height:160px;"></div>
+            <div class="booking-nav">
+              <button class="btn btn-ghost" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="goToStep(4)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-step-content">
+            <h3 class="bstep-title"><i class="fas fa-clock"></i> Session Duration</h3>
+            <div class="form-group"><label class="form-label">Duration</label>
+              <select class="form-input form-select" id="book-duration">
+                <option value="1">1 Hour</option><option value="2">2 Hours</option>
+                <option value="3">3 Hours</option><option value="4">4 Hours</option>
+                <option value="5">5 Hours</option><option value="6">6 Hours (Full Day Deal)</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Number of Players</label>
+              <select class="form-input form-select" id="book-players">
+                <option value="1">1 Player</option><option value="2">2 Players</option>
+                <option value="3">3 Players</option><option value="4">4 Players</option>
+              </select>
+            </div>
+            <div class="booking-nav">
+              <button class="btn btn-ghost" onclick="goToStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="goToStep(5)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-step-content">
+            <h3 class="bstep-title"><i class="fas fa-user"></i> Player Details</h3>
+            <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" id="book-name" placeholder="Enter your name" /></div>
+            <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="book-phone" placeholder="+91 xxxxx xxxxx" /></div>
+            <div class="form-group"><label class="form-label">Game (Optional)</label><input type="text" class="form-input" id="book-game" placeholder="e.g., Valorant, CS2..." /></div>
+            <div class="form-group"><label class="form-label">Special Requests</label><textarea class="form-input" id="book-requests" rows="2" placeholder="Any special requirements..."></textarea></div>
+            <div class="booking-nav">
+              <button class="btn btn-ghost" onclick="goToStep(4)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="goToStep(6)">Review &amp; Pay <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-step-content">
+            <h3 class="bstep-title"><i class="fas fa-lock"></i> Review &amp; Payment</h3>
+            <div id="booking-summary"></div>
+            <div style="margin-top:20px;"><label class="form-label">Payment Method</label>
+              <div class="payment-methods">
+                <button class="pay-method" data-payment="upi"><i class="fas fa-mobile-alt"></i>UPI</button>
+                <button class="pay-method" data-payment="card"><i class="fas fa-credit-card"></i>Card</button>
+                <button class="pay-method" data-payment="wallet"><i class="fas fa-wallet"></i>Wallet</button>
+                <button class="pay-method" data-payment="netbanking"><i class="fas fa-university"></i>NetBanking</button>
+              </div>
+              <div id="booking-payment-detail" class="booking-payment-detail">Select a payment method to continue.</div>
+            </div>
+            <div class="booking-nav">
+              <button class="btn btn-ghost" onclick="goToStep(5)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary btn-lg" onclick="confirmBooking()"><i class="fas fa-lock"></i> Confirm &amp; Pay</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-summary-side" id="booking-live-summary">
+          <div class="bsum-header"><i class="fas fa-receipt"></i> BOOKING SUMMARY</div>
+          <div style="display:grid;gap:12px;">
+            <div class="bsum-row"><span class="bsum-label">Platform</span><span class="bsum-val" id="bsum-platform">&#8212;</span></div>
+            <div class="bsum-row"><span class="bsum-label">Seat</span><span class="bsum-val" id="bsum-seat">&#8212;</span></div>
+            <div class="bsum-row"><span class="bsum-label">Date</span><span class="bsum-val" id="bsum-date">&#8212;</span></div>
+            <div class="bsum-row"><span class="bsum-label">Time</span><span class="bsum-val" id="bsum-time">&#8212;</span></div>
+            <div class="bsum-row"><span class="bsum-label">Duration</span><span class="bsum-val" id="bsum-duration">&#8212;</span></div>
+            <div class="bsum-row"><span class="bsum-label">Players</span><span class="bsum-val" id="bsum-players">1</span></div>
+            <div class="bsum-total-row">
+              <span class="bsum-total-label">TOTAL</span>
+              <span id="bsum-total" class="bsum-total-val">&#8377;0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     MEMBERSHIP PLANS
+══════════════════════════════════════════════ -->
+  <section id="membership" class="section-dark">
+    <div class="container">
+      <h2 class="section-title reveal glitch" data-text="MEMBERSHIP PLANS">MEMBERSHIP PLANS</h2>
+      <p class="section-subtitle">Choose your tier. Unlock better rates, priority access and member-only rewards.</p>
+
+      <div class="membership-cards stagger compact-membership-cards">
+
+        <div class="membership-card bronze">
+          <span class="membership-icon">🥉</span>
+          <div class="membership-tier">Bronze</div>
+          <span class="membership-price"><sup>₹</sup>299<sub>/month</sub></span>
+          <ul class="membership-features">
+            <li><i class="fas fa-check"></i> 10% Discount on Sessions</li>
+            <li><i class="fas fa-check"></i> Birthday Month Free Hour</li>
+            <li><i class="fas fa-check"></i> Member-Only Events</li>
+            <li><i class="fas fa-check"></i> 50 Bonus XP Daily</li>
+            <li><i class="fas fa-check"></i> Digital Membership Card</li>
+          </ul>
+          <button class="btn-membership" onclick="openAuthModal();showToast('Bronze selected — sign in to continue.', '🥉')">Get Bronze</button>
+        </div>
+
+        <div class="membership-card silver">
+          <span class="membership-icon">🥈</span>
+          <div class="membership-tier">Silver</div>
+          <span class="membership-price"><sup>₹</sup>599<sub>/month</sub></span>
+          <ul class="membership-features">
+            <li><i class="fas fa-check"></i> 20% Discount on Sessions</li>
+            <li><i class="fas fa-check"></i> Priority Seat Booking</li>
+            <li><i class="fas fa-check"></i> 15% Tournament Discount</li>
+            <li><i class="fas fa-check"></i> Exclusive Events Access</li>
+            <li><i class="fas fa-check"></i> 100 Bonus XP Daily</li>
+            <li><i class="fas fa-check"></i> Monthly Spin Reward</li>
+          </ul>
+          <button class="btn-membership" onclick="openAuthModal();showToast('Silver selected — sign in to continue.', '🥈')">Get Silver</button>
+        </div>
+
+        <div class="membership-card gold">
+          <div class="ambient-glow"></div>
+          <div class="popular-badge">⭐ Most Popular</div>
+          <span class="membership-icon">🥇</span>
+          <div class="membership-tier">Gold</div>
+          <span class="membership-price" style="color:var(--gold);"><sup>₹</sup>999<sub>/month</sub></span>
+          <ul class="membership-features">
+            <li><i class="fas fa-check"></i> 30% Discount on All</li>
+            <li><i class="fas fa-check"></i> 5 Free Hours Monthly</li>
+            <li><i class="fas fa-check"></i> Premium Lounge Access</li>
+            <li><i class="fas fa-check"></i> Free Birthday Session</li>
+            <li><i class="fas fa-check"></i> 200 Bonus XP Daily</li>
+            <li><i class="fas fa-check"></i> Unlimited Priority Booking</li>
+            <li><i class="fas fa-check"></i> Weekly Spin Reward</li>
+          </ul>
+          <button class="btn-membership" onclick="openAuthModal();showToast('Gold selected — sign in to continue.', '🥇')"><i class="fas fa-crown"></i> Get Gold</button>
+        </div>
+
+        <div class="membership-card platinum">
+          <span class="membership-icon">💎</span>
+          <div class="membership-tier">Platinum</div>
+          <span class="membership-price" style="color:var(--neon-cyan);"><sup>₹</sup>1999<sub>/month</sub></span>
+          <ul class="membership-features">
+            <li><i class="fas fa-check"></i> 50% Discount on All</li>
+            <li><i class="fas fa-check"></i> 15 Free Hours Monthly</li>
+            <li><i class="fas fa-check"></i> VIP Private Room Access</li>
+            <li><i class="fas fa-check"></i> Coach Sessions (2/month)</li>
+            <li><i class="fas fa-check"></i> Exclusive Merchandise</li>
+            <li><i class="fas fa-check"></i> Early Tournament Entry</li>
+            <li><i class="fas fa-check"></i> 500 Bonus XP Daily</li>
+            <li><i class="fas fa-check"></i> Daily Spin Reward</li>
+          </ul>
+          <button class="btn-membership" onclick="openAuthModal();showToast('Platinum selected — sign in to continue.', '💎')"><i class="fas fa-gem"></i> Go Platinum</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     TOURNAMENTS — Claymorphic Bootstrap 5 + AngularJS
+══════════════════════════════════════════════ -->
+  <section id="tournaments">
+    <div class="container">
+      <h2 class="section-title reveal glitch" data-text="TOURNAMENT COMMAND">TOURNAMENT COMMAND</h2>
+      <p class="section-subtitle">Live Global Competitive Ecosystem</p>
+
+      <!-- Stats Banner -->
+      <div class="t-stats-banner reveal">
+        <div class="t-stat-item">
+          <div class="t-stat-label">Total Prize Pool</div>
+          <div class="t-stat-value" style="color:#00ff88;text-shadow:0 0 20px rgba(0,255,136,.5);">₹4.55L+</div>
+        </div>
+        <div class="t-stat-divider"></div>
+        <div class="t-stat-item">
+          <div class="t-stat-label">Active Ops</div>
+          <div class="t-stat-value" style="color:#00d4ff;text-shadow:0 0 20px rgba(0,212,255,.5);">06</div>
+        </div>
+        <div class="t-stat-divider"></div>
+        <div class="t-stat-item">
+          <div class="t-stat-label">Active Combatants</div>
+          <div class="t-stat-value" style="color:#d2bbff;text-shadow:0 0 20px rgba(210,187,255,.4);">549</div>
+        </div>
+        <div class="t-stat-divider"></div>
+        <div class="t-stat-item">
+          <div class="t-stat-label">Live Players</div>
+          <div class="t-stat-value" style="color:#00d4ff;">342</div>
+        </div>
+      </div>
+
+      <!-- Tournaments Grid -->
+      <div id="tournaments-grid" class="row g-4"></div>
+    </div>
+  </section>
+  <!-- ARENA LEADERS — always visible -->
+  <section id="leaderboards" class="leaderboard-collapsed-section nx-leaders-premium">
+    <div class="container">
+      <div class="leaderboard-trigger-card reveal">
+        <div>
+          <span class="lb-trigger-kicker"><i class="fas fa-trophy"></i> COMPETITIVE INTELLIGENCE</span>
+          <h3>ARENA LEADERS</h3>
+          <p>Top performers, live status and competitive XP — updated in the arena view.</p>
+        </div>
+        <a class="btn btn-primary btn-sm" href="#leaderboards"><i class="fas fa-ranking-star"></i> LIVE BOARD</a>
+      </div>
+      <div id="leaderboard-content" class="leaderboard-open" aria-hidden="false"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     LIVE STREAMS
+══════════════════════════════════════════════ -->
+  <section id="live-streams" style="background:var(--bg-primary);">
+    <div class="container">
+      <h2 class="section-title reveal">LIVE STREAMS HUB</h2>
+      <p class="section-subtitle">Watch • Cheer • Support Your Favorites</p>
+
+      <div class="grid-3 stagger">
+        <a href="https://www.youtube.com/watch?v=e_E9W2vsRbQ" target="_blank" rel="noopener"
+          style="text-decoration:none;color:inherit;">
+          <div class="stream-card" style="cursor:pointer;">
+            <div class="stream-thumb"
+              style="background:linear-gradient(135deg,#ff4655,#0f1923);position:relative;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/e_E9W2vsRbQ/hqdefault.jpg" alt="Valorant"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"
+                onerror="this.style.display='none'" />
+              <div class="stream-live-badge"><span class="live-dot"></span>LIVE</div>
+              <div class="stream-play"><i class="fas fa-play"></i></div>
+              <div class="stream-viewers"><i class="fas fa-eye"></i> 4,521</div>
+            </div>
+            <div class="stream-info">
+              <div style="display:flex;align-items:center;margin-bottom:8px;">
+                <div class="stream-platform-icon"
+                  style="background:#ff0000;border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;">
+                  <i class="fab fa-youtube" style="color:#fff;font-size:0.75rem;"></i></div>
+                <span class="badge badge-pink" style="font-size:0.65rem;">YouTube</span>
+              </div>
+              <div class="stream-title">Valorant Champions Tour — Grand Finals</div>
+              <div class="stream-streamer"><i class="fas fa-user-circle"></i> VALORANT • 1.2M subscribers</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=2EZNV2m03HE" target="_blank" rel="noopener"
+          style="text-decoration:none;color:inherit;">
+          <div class="stream-card" style="cursor:pointer;">
+            <div class="stream-thumb"
+              style="background:linear-gradient(135deg,#f0a500,#1a1a2e);position:relative;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/2EZNV2m03HE/hqdefault.jpg" alt="BGMI"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"
+                onerror="this.style.display='none'" />
+              <div class="stream-live-badge"><span class="live-dot"></span>LIVE</div>
+              <div class="stream-play"><i class="fas fa-play"></i></div>
+              <div class="stream-viewers"><i class="fas fa-eye"></i> 8,934</div>
+            </div>
+            <div class="stream-info">
+              <div style="display:flex;align-items:center;margin-bottom:8px;">
+                <div class="stream-platform-icon"
+                  style="background:#ff0000;border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;">
+                  <i class="fab fa-youtube" style="color:#fff;font-size:0.75rem;"></i></div>
+                <span class="badge badge-pink" style="font-size:0.65rem;">YouTube</span>
+              </div>
+              <div class="stream-title">BGMI Pro Series — Season 3 Finals</div>
+              <div class="stream-streamer"><i class="fas fa-user-circle"></i> BGMI Esports • 45K subscribers</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=a3lcGnMhvsA" target="_blank" rel="noopener"
+          style="text-decoration:none;color:inherit;">
+          <div class="stream-card" style="cursor:pointer;">
+            <div class="stream-thumb"
+              style="background:linear-gradient(135deg,#00d4ff,#0a0a1a);position:relative;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/a3lcGnMhvsA/hqdefault.jpg" alt="CS2"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"
+                onerror="this.style.display='none'" />
+              <div
+                style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.15);color:#fff;padding:3px 10px;border-radius:4px;font-size:0.7rem;font-family:var(--font-gaming);font-weight:700;backdrop-filter:blur(5px);">
+                UPCOMING</div>
+              <div class="stream-play"><i class="fas fa-play"></i></div>
+              <div class="stream-viewers"><i class="fas fa-bell"></i> 934 notified</div>
+            </div>
+            <div class="stream-info">
+              <div style="display:flex;align-items:center;margin-bottom:8px;">
+                <div class="stream-platform-icon"
+                  style="background:#ff0000;border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;">
+                  <i class="fab fa-youtube" style="color:#fff;font-size:0.75rem;"></i></div>
+                <span class="badge badge-pink" style="font-size:0.65rem;">YouTube</span>
+              </div>
+              <div class="stream-title">CS2 Major — Grand Finals — Tonight 8 PM</div>
+              <div class="stream-streamer"><i class="fas fa-user-circle"></i> CS Esports • 8.3K subscribers</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn btn-outline">
+          <i class="fab fa-twitch"></i> Watch All Streams
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+
+  
+  <!-- ══════════════════════════════════════════════
+     CAFE & VENDING SECTION (Stitch Integrated)
+══════════════════════════════════════════════ -->
+  <section class="bg-[#050508] relative" id="cafe-menu" style="padding: 80px 0;">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent pointer-events-none"></div>
+    <div class="container max-w-7xl mx-auto px-4 relative z-10">
+      <div class="text-center mb-16 reveal visible">
+        <h2 class="section-title glitch font-['Orbitron'] text-3xl md:text-4xl font-bold text-white mb-2" data-text="NEXUS CAFÉ">NEXUS CAFÉ</h2>
+        <p class="section-subtitle font-['Rajdhani'] text-gray-400 text-lg tracking-wide uppercase">FUEL YOUR GAME • ORDER FROM YOUR SEAT</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger visible">
+        <!-- Card 1 -->
+        <div class="glass-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] border-4 border-white/20 hover:border-[#00d4ff]/80 rounded-xl bg-white/5 backdrop-blur-sm">
+          <div class="aspect-square overflow-hidden rounded-t-xl relative">
+            <img alt="Gaming Loaded Fries" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEdjuzCmSMqq-b8EVZ8KYK1sJjJq_-4fzrnmRU-8NZ6Iuod2skMXob4DUbUpWwM3IV9AHBLcG4jBzuOZAq8UUysmj5R3_HHyw9PPxPoOuDHMAv0CwOIZAksTwJI6B6KUth09GPo7KG3BsGgCvXsR80a1iWw3ZpJWS6HJH8mJIqvhzcncxI9nqZi5u6UXUNqyLbhDQd8Qa31NmbnCTznrUS6cFEFYnVPYTOmsmSbLHl8lhaLaS76PWsrA" style="width: 100%; aspect-ratio: 1; object-fit: cover; display: block;"/>
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+              <h3 class="font-['Orbitron'] text-white font-bold text-base" style="margin: 0; font-family: 'Orbitron', sans-serif;">Gaming Loaded Fries</h3>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] mt-1.5" title="Non-Veg" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ef4444; margin-top:6px;"></span>
+            </div>
+            <p class="font-['Rajdhani'] text-gray-400 text-sm leading-relaxed mb-4 flex-grow" style="color: #9ca3af; font-family: 'Rajdhani', sans-serif;">Crispy golden fries topped with melted cheese, spicy jalapeños, and smoky bacon bits.</p>
+            <div class="flex items-center justify-between mt-auto" style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+              <span class="font-['Orbitron'] text-[#00d4ff] font-bold" style="color:#00d4ff; font-family:'Orbitron', sans-serif; font-weight:bold;">₹149</span>
+              <div class="flex items-center bg-white/5 rounded-lg border border-white/10 p-1" style="display:flex; align-items:center; background:rgba(255,255,255,0.05); border-radius:0.5rem; padding:4px;">
+                <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#9ca3af; cursor:pointer;" onclick="this.nextElementSibling.innerText = Math.max(1, parseInt(this.nextElementSibling.innerText)-1)"><i class="fas fa-minus text-xs"></i></button>
+                <span class="w-8 text-center text-sm font-bold text-white" style="width:32px; text-align:center; color:#fff; font-weight:bold;">1</span>
+                <button class="w-8 h-8 flex items-center justify-center text-[#00d4ff] hover:scale-110 transition-transform" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#00d4ff; cursor:pointer;" onclick="this.previousElementSibling.innerText = parseInt(this.previousElementSibling.innerText)+1"><i class="fas fa-plus text-xs"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="addToCart('Gaming Loaded Fries', 149, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEdjuzCmSMqq-b8EVZ8KYK1sJjJq_-4fzrnmRU-8NZ6Iuod2skMXob4DUbUpWwM3IV9AHBLcG4jBzuOZAq8UUysmj5R3_HHyw9PPxPoOuDHMAv0CwOIZAksTwJI6B6KUth09GPo7KG3BsGgCvXsR80a1iWw3ZpJWS6HJH8mJIqvhzcncxI9nqZi5u6UXUNqyLbhDQd8Qa31NmbnCTznrUS6cFEFYnVPYTOmsmSbLHl8lhaLaS76PWsrA')" style="width:100%;margin-top:12px;display:flex;justify-content:center;"><i class="fas fa-shopping-bag"></i> ADD TO CART</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] border-4 border-white/20 hover:border-[#7c3aed]/80 rounded-xl bg-white/5 backdrop-blur-sm">
+          <div class="aspect-square overflow-hidden rounded-t-xl relative">
+            <img alt="Peri Peri Chicken Burger" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjmfYiPSH0bflUKTHUbldYpq1aGXGvYmaNbo-Vm79kum2lyXxN_9N8SPXyc-wwG8ZKtcCUmGjA6_C9yhAFugcKCxqoYn2VZwKCv-E_rOFQx2qesQqoejMAlUQjXKaODS4HxxRX5yvtFvWIGF5RIMAv1jKRPUXiA8LLGAQgBprMfznRBAU9B-QpMZ861NhXYDcAHJYiKfohy8yc01nZlgro3PEFooCrJeqRWiY_ntoA1zluw_djYNI_eQ" style="width: 100%; aspect-ratio: 1; object-fit: cover; display: block;"/>
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+              <h3 class="font-['Orbitron'] text-white font-bold text-base" style="margin: 0; font-family: 'Orbitron', sans-serif;">Peri Peri Chicken Burger</h3>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] mt-1.5" title="Non-Veg" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ef4444; margin-top:6px;"></span>
+            </div>
+            <p class="font-['Rajdhani'] text-gray-400 text-sm leading-relaxed mb-4 flex-grow" style="color: #9ca3af; font-family: 'Rajdhani', sans-serif;">Juicy grilled chicken breast with spicy peri-peri sauce and melting cheese in a brioche bun.</p>
+            <div class="flex items-center justify-between mt-auto" style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+              <span class="font-['Orbitron'] text-[#7c3aed] font-bold" style="color:#7c3aed; font-family:'Orbitron', sans-serif; font-weight:bold;">₹199</span>
+              <div class="flex items-center bg-white/5 rounded-lg border border-white/10 p-1" style="display:flex; align-items:center; background:rgba(255,255,255,0.05); border-radius:0.5rem; padding:4px;">
+                <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#9ca3af; cursor:pointer;" onclick="this.nextElementSibling.innerText = Math.max(1, parseInt(this.nextElementSibling.innerText)-1)"><i class="fas fa-minus text-xs"></i></button>
+                <span class="w-8 text-center text-sm font-bold text-white" style="width:32px; text-align:center; color:#fff; font-weight:bold;">1</span>
+                <button class="w-8 h-8 flex items-center justify-center text-[#7c3aed] hover:scale-110 transition-transform" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#7c3aed; cursor:pointer;" onclick="this.previousElementSibling.innerText = parseInt(this.previousElementSibling.innerText)+1"><i class="fas fa-plus text-xs"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="addToCart('Peri Peri Chicken Burger', 199, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDjmfYiPSH0bflUKTHUbldYpq1aGXGvYmaNbo-Vm79kum2lyXxN_9N8SPXyc-wwG8ZKtcCUmGjA6_C9yhAFugcKCxqoYn2VZwKCv-E_rOFQx2qesQqoejMAlUQjXKaODS4HxxRX5yvtFvWIGF5RIMAv1jKRPUXiA8LLGAQgBprMfznRBAU9B-QpMZ861NhXYDcAHJYiKfohy8yc01nZlgro3PEFooCrJeqRWiY_ntoA1zluw_djYNI_eQ')" style="width:100%;margin-top:12px;display:flex;justify-content:center;background:var(--neon-purple);border-color:var(--neon-purple);"><i class="fas fa-shopping-bag"></i> ADD TO CART</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,107,0,0.4)] border-4 border-white/20 hover:border-[#ff6b00]/80 rounded-xl bg-white/5 backdrop-blur-sm">
+          <div class="aspect-square overflow-hidden rounded-t-xl relative">
+            <img alt="Classic Cheese Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNYH4istUgNUqZZTkN9EI9vuWt0qAfz7IMbYEx2vd17V3i7sw3tc7MDDrbewau6nINUa81tpY1Dfl8oHRZSWUMzPv_NlMl76s-brwlFZnj2ut6BD40KdkBe0nDsJJ5RMCRcP--qFIQ7KxWIQBMjZW9_UCyj2zviD25M3oR33w3vv6RmpVoKG6gUrqa8r4J-eg6rMEQVh0UDudKfmcjdP3JsKEf5rXSJ8nb1gVLyXKRGP_NNMBbRnZR3A" style="width: 100%; aspect-ratio: 1; object-fit: cover; display: block;"/>
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+              <h3 class="font-['Orbitron'] text-white font-bold text-base" style="margin: 0; font-family: 'Orbitron', sans-serif;">Classic Cheese Pizza</h3>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#4ade80] mt-1.5" title="Veg" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#4ade80; margin-top:6px;"></span>
+            </div>
+            <p class="font-['Rajdhani'] text-gray-400 text-sm leading-relaxed mb-4 flex-grow" style="color: #9ca3af; font-family: 'Rajdhani', sans-serif;">Thin crust artisanal pizza with bubbling mozzarella, rich tomato sauce, and fresh basil.</p>
+            <div class="flex items-center justify-between mt-auto" style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+              <span class="font-['Orbitron'] text-[#ff6b00] font-bold" style="color:#ff6b00; font-family:'Orbitron', sans-serif; font-weight:bold;">₹179</span>
+              <div class="flex items-center bg-white/5 rounded-lg border border-white/10 p-1" style="display:flex; align-items:center; background:rgba(255,255,255,0.05); border-radius:0.5rem; padding:4px;">
+                <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#9ca3af; cursor:pointer;" onclick="this.nextElementSibling.innerText = Math.max(1, parseInt(this.nextElementSibling.innerText)-1)"><i class="fas fa-minus text-xs"></i></button>
+                <span class="w-8 text-center text-sm font-bold text-white" style="width:32px; text-align:center; color:#fff; font-weight:bold;">1</span>
+                <button class="w-8 h-8 flex items-center justify-center text-[#ff6b00] hover:scale-110 transition-transform" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#ff6b00; cursor:pointer;" onclick="this.previousElementSibling.innerText = parseInt(this.previousElementSibling.innerText)+1"><i class="fas fa-plus text-xs"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="addToCart('Classic Cheese Pizza', 179, 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNYH4istUgNUqZZTkN9EI9vuWt0qAfz7IMbYEx2vd17V3i7sw3tc7MDDrbewau6nINUa81tpY1Dfl8oHRZSWUMzPv_NlMl76s-brwlFZnj2ut6BD40KdkBe0nDsJJ5RMCRcP--qFIQ7KxWIQBMjZW9_UCyj2zviD25M3oR33w3vv6RmpVoKG6gUrqa8r4J-eg6rMEQVh0UDudKfmcjdP3JsKEf5rXSJ8nb1gVLyXKRGP_NNMBbRnZR3A')" style="width:100%;margin-top:12px;display:flex;justify-content:center;background:var(--neon-orange);border-color:var(--neon-orange);"><i class="fas fa-shopping-bag"></i> ADD TO CART</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="glass-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] border-4 border-white/20 hover:border-[#ef4444]/80 rounded-xl bg-white/5 backdrop-blur-sm">
+          <div class="aspect-square overflow-hidden rounded-t-xl relative">
+            <img alt="Schezwan Gaming Noodles" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRL5dSvvfXZzgObKA8dkE32lK8Vh6rcp_utJCt1GJzYq-mKyDd1Twv0DKXaXElO8cG0pk40gxMdTexFSb94FgXrCplCPs-dwT6roIpFXPCTSzsz4o9ohOsWtnD2CFbuxA2EG8wDOEk_oEbHCMGGSLwXydvKJ8SuwiNXoEb3dWMCcdGWYYi33sGBu2oxYZOU1S-rP5ewJYYBBHV3mHxu2xjW1fxZsZ_sRak9qyFv8_f5tdfWU-MdfB-xw" style="width: 100%; aspect-ratio: 1; object-fit: cover; display: block;"/>
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+              <h3 class="font-['Orbitron'] text-white font-bold text-base" style="margin: 0; font-family: 'Orbitron', sans-serif;">Schezwan Gaming Noodles</h3>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#4ade80] mt-1.5" title="Veg" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#4ade80; margin-top:6px;"></span>
+            </div>
+            <p class="font-['Rajdhani'] text-gray-400 text-sm leading-relaxed mb-4 flex-grow" style="color: #9ca3af; font-family: 'Rajdhani', sans-serif;">Spicy stir-fried noodles with a fiery Schezwan kick and crunchy garden vegetables.</p>
+            <div class="flex items-center justify-between mt-auto" style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+              <span class="font-['Orbitron'] text-[#ef4444] font-bold" style="color:#ef4444; font-family:'Orbitron', sans-serif; font-weight:bold;">₹149</span>
+              <div class="flex items-center bg-white/5 rounded-lg border border-white/10 p-1" style="display:flex; align-items:center; background:rgba(255,255,255,0.05); border-radius:0.5rem; padding:4px;">
+                <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#9ca3af; cursor:pointer;" onclick="this.nextElementSibling.innerText = Math.max(1, parseInt(this.nextElementSibling.innerText)-1)"><i class="fas fa-minus text-xs"></i></button>
+                <span class="w-8 text-center text-sm font-bold text-white" style="width:32px; text-align:center; color:#fff; font-weight:bold;">1</span>
+                <button class="w-8 h-8 flex items-center justify-center text-[#ef4444] hover:scale-110 transition-transform" style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#ef4444; cursor:pointer;" onclick="this.previousElementSibling.innerText = parseInt(this.previousElementSibling.innerText)+1"><i class="fas fa-plus text-xs"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="addToCart('Schezwan Gaming Noodles', 149, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRL5dSvvfXZzgObKA8dkE32lK8Vh6rcp_utJCt1GJzYq-mKyDd1Twv0DKXaXElO8cG0pk40gxMdTexFSb94FgXrCplCPs-dwT6roIpFXPCTSzsz4o9ohOsWtnD2CFbuxA2EG8wDOEk_oEbHCMGGSLwXydvKJ8SuwiNXoEb3dWMCcdGWYYi33sGBu2oxYZOU1S-rP5ewJYYBBHV3mHxu2xjW1fxZsZ_sRak9qyFv8_f5tdfWU-MdfB-xw')" style="width:100%;margin-top:12px;display:flex;justify-content:center;background:#ef4444;border-color:#ef4444;color:#fff;"><i class="fas fa-shopping-bag"></i> ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+     MERCHANDISE SHOP
+══════════════════════════════════════════════ -->
+  <section id="shop" class="section-dark">
+    <div class="container">
+      <h2 class="section-title reveal">PRO STORE</h2>
+      <p class="section-subtitle">Hardware, Nexus merch, gaming gear, skins & top-ups — all in one dedicated store.</p>
+      <div class="pro-store-teaser reveal">
+        <div class="pro-store-icon"><i class="fas fa-store"></i></div>
+        <div class="pro-store-copy">
+          <span class="pro-store-kicker">NEXUS PRO STORE</span>
+          <h3>Shop without clutter.</h3>
+          <p>The homepage keeps the focus on the arena. Browse the complete product catalog, product pages, cart and checkout in the dedicated Pro Store.</p>
+        </div>
+        <a href="store/index.html" class="btn btn-primary btn-lg"><i class="fas fa-store"></i> GO TO PRO STORE <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     EVENTS
+══════════════════════════════════════════════ -->
+  <section id="events" class="section-dark">
+    <div class="container">
+      <h2 class="section-title reveal">EVENT CALENDAR</h2>
+      <p class="section-subtitle">Never miss an epic gaming event</p>
+
+      <div class="grid-2 stagger">
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">20</span><span class="event-month">Jul</span></div>
+          <div>
+            <div class="event-title">Valorant LAN Party</div>
+            <div class="event-desc">5v5 local tournament with live spectators, commentary, and prize pool</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-cyan">LAN Party</span>
+              <span class="badge badge-green">₹15,000 Prize</span>
+              <span class="badge badge-green">Free Entry</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('Valorant LAN Party','2026-07-20','10:00:00',180)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">22</span><span class="event-month">Jul</span></div>
+          <div>
+            <div class="event-title">BGMI Night Tournament</div>
+            <div class="event-desc">12 AM to 6 AM — Night owl special with exclusive rewards</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-purple">Night Event</span>
+              <span class="badge badge-gold">₹25,000 Prize</span>
+              <span class="badge badge-cyan">100 Players</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('BGMI Night Tournament','2026-07-22','00:00:00',360)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">25</span><span class="event-month">Jul</span></div>
+          <div>
+            <div class="event-title">Console Championship</div>
+            <div class="event-desc">PS5 + Xbox multi-game championship spanning FC 26, Tekken 8, and COD</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-purple">Console</span>
+              <span class="badge badge-gold">₹20,000 Prize</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('Console Championship','2026-07-25','14:00:00',240)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">28</span><span class="event-month">Jul</span></div>
+          <div>
+            <div class="event-title">Mobile Gaming Championship</div>
+            <div class="event-desc">BGMI + Free Fire MAX combined event with solo and squad categories</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-green">Mobile</span>
+              <span class="badge badge-pink">₹50,000 Prize</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('Mobile Gaming Championship','2026-07-28','12:00:00',300)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">01</span><span class="event-month">Aug</span></div>
+          <div>
+            <div class="event-title">Gaming Cosplay Event</div>
+            <div class="event-desc">Dress as your favorite game character — best cosplay wins exciting prizes</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-pink">Cosplay</span>
+              <span class="badge badge-gold">₹10,000 Prize</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('Gaming Cosplay Event','2026-08-01','11:00:00',180)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="event-day">05</span><span class="event-month">Aug</span></div>
+          <div>
+            <div class="event-title">Developer Meetup & Talk</div>
+            <div class="event-desc">Meet indie game developers and play exclusive pre-release game demos</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="badge badge-cyan">Meetup</span>
+              <span class="badge badge-green">Free Entry</span>
+            </div>
+            <button class="btn-add-calendar" onclick="addToCalendar('Developer Meetup','2026-08-05','16:00:00',120)" style="margin-top:10px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-cyan);padding:6px 14px;border-radius:20px;font-size:0.75rem;font-family:var(--font-accent);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.2)'" onmouseout="this.style.background='rgba(0,212,255,0.1)'">
+              <i class="fas fa-calendar-plus"></i> Add to Calendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════ -->
+  <section id="contact" style="background:var(--bg-primary);">
+    <div class="container">
+      <h2 class="section-title reveal">CONTACT US</h2>
+      <p class="section-subtitle">We're here 24/7 for all your gaming needs</p>
+
+      <div class="contact-grid reveal">
+        <div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div
+                style="font-family:var(--font-gaming);font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                Location</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Level 3, Nexus Mall, Whitefield<br>Bengaluru,
+                Karnataka 560066</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <div
+                style="font-family:var(--font-gaming);font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                Phone</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);">+91 98765 43210<br>+91 98765 43211</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div
+                style="font-family:var(--font-gaming);font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                Email</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);">play@nexusarena.in<br>support@nexusarena.in
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <div
+                style="font-family:var(--font-gaming);font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                Hours</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Open 24/7 — Never Closes<br>Yes, even on
+                holidays! 🎮</div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div style="margin-top:24px;">
+            <div
+              style="font-family:var(--font-gaming);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--neon-cyan);margin-bottom:16px;">
+              Follow Us</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="social-btn" title="Twitch"><i class="fab fa-twitch"></i></a>
+              <a href="#" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
+              <a href="#" class="social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h3 style="font-family:var(--font-gaming);font-size:1.1rem;color:#fff;margin-bottom:24px;">Send Us a Message
+          </h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" placeholder="+91 xxxxx xxxxx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-input form-select">
+              <option>General Inquiry</option>
+              <option>Booking Issue</option>
+              <option>Tournament Registration</option>
+              <option>Membership Queries</option>
+              <option>Corporate Events</option>
+              <option>Feedback & Suggestions</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" rows="4" placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <button class="btn btn-primary w-full" style="justify-content:center;" type="button">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main><!-- /#main-content -->
+
+  <!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">NEXUS ARENA</span>
+          <div class="footer-tagline">Play Beyond Reality</div>
+          <p class="footer-desc">India's most premium gaming destination — featuring cutting-edge PCs, PS5, Xbox, VR,
+            mobile gaming, tournaments, and an in-house café. Open 24/7.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitch"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#gaming-zones">Gaming Zones</a></li>
+            <li><a href="#live-seats">Live Seat Availability</a></li>
+            <li><a href="#booking">Book a Session</a></li>
+            <li><a href="#membership">Membership Plans</a></li>
+            <li><a href="#tournaments">Tournaments</a></li>
+            <li><a href="#leaderboards">Leaderboards</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#live-streams">Live Streams</a></li>
+            <li><a href="#cafe-menu">Gaming Café</a></li>
+            <li><a href="#shop">Merchandise Store</a></li>
+            <li><a href="#events">Event Calendar</a></li>
+            <li><a href="#" onclick="openDashboard();return false;">Profile Rewards</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#contact">About Us</a></li>
+            <li><a href="#blog">Blog & News</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Partner With Us</a></li>
+            <li><a href="#contact">Franchise Enquiry</a></li>
+            <li><a href="#contact">Support Center</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Newsletter</div>
+          <p
+            style="font-size:0.82rem;color:rgba(255,255,255,0.4);margin-bottom:16px;font-family:var(--font-body);line-height:1.6;">
+            Get exclusive deals, tournament alerts, and gaming news delivered weekly.</p>
+          <div class="newsletter-wrap">
+            <input type="email" class="form-input" placeholder="your@email.com"
+              style="border-radius:var(--radius-sm) var(--radius-sm) 0 0;" />
+            <button class="newsletter-btn">
+              <i class="fas fa-paper-plane"></i> Subscribe
+            </button>
+          </div>
+          <div style="margin-top:16px;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:var(--font-body);">📍
+            Nexus Mall, Whitefield, Bengaluru</div>
+          <div style="margin-top:4px;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:var(--font-body);">⏰ Open
+            24/7 • Never Closes</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Nexus Arena Pvt. Ltd. All Rights Reserved. Made with ❤️ for Gamers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════════ -->
+
+  <!-- Dashboard Modal -->
+  <div class="modal-overlay" id="dashboard-modal">
+    <div class="modal-box" style="max-width:850px;display:flex;flex-direction:column;">
+      <button class="modal-close" onclick="closeModal('dashboard-modal')"><i class="fas fa-times"></i></button>
+      
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:12px;">
+        <h2 style="font-family:var(--font-gaming);font-size:1.3rem;color:var(--neon-cyan);margin:0;">
+          <i class="fas fa-user-astronaut"></i> Player Dashboard
+        </h2>
+        <button class="btn btn-ghost btn-sm" onclick="handleLogout()" style="color:var(--neon-pink);">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+
+      <div class="dashboard-grid" style="align-items:start;">
+        <div class="dashboard-profile">
+          <div class="dashboard-avatar" id="dash-avatar">GP</div>
+          <div class="dashboard-username" id="dash-username">GamerPro_99</div>
+          <div class="dashboard-level" id="dash-level">Level 42 • Rank #23</div>
+          <span class="badge badge-gold" id="dash-membership">GOLD</span>
+          <div style="margin-top:16px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.4);font-family:var(--font-accent);margin-bottom:6px;">
+              <span id="dash-xp-label">18,450 / 20,000 XP</span>
+            </div>
+            <div class="xp-bar">
+              <div class="xp-bar-fill" id="dash-xp-bar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="dashboard-stats-mini">
+            <div class="dashboard-stat-mini"><span class="dsm-value" data-dash-stat="totalHours">284</span><span class="dsm-label">Hours</span></div>
+            <div class="dashboard-stat-mini"><span class="dsm-value" data-dash-stat="wins">97</span><span class="dsm-label">Wins</span></div>
+            <div class="dashboard-stat-mini"><span class="dsm-value" data-dash-stat="wallet">850</span><span class="dsm-label">₹ Wallet</span></div>
+            <div class="dashboard-stat-mini"><span class="dsm-value" data-dash-stat="points">3240</span><span class="dsm-label">XP Points</span></div>
+          </div>
+        </div>
+
+        <div class="dashboard-main" style="display:flex;flex-direction:column;gap:20px;">
+          <div class="tabs" data-tab-group="dashboard" style="margin-bottom:0;">
+            <button class="tab-btn active" data-dash-tab="bookings">Bookings</button>
+            <button class="tab-btn" data-dash-tab="orders">Orders</button>
+            <button class="tab-btn" data-dash-tab="rewards">Rewards</button>
+          </div>
+
+          <!-- Bookings Tab -->
+          <div id="dash-tab-bookings" style="display:block;">
+            <div id="dash-bookings" style="max-height:300px;overflow-y:auto;padding-right:8px;display:flex;flex-direction:column;gap:12px;"></div>
+            <div style="display:flex;gap:10px;margin-top:16px;">
+              <button class="btn btn-primary btn-sm flex-1" style="justify-content:center;" onclick="closeModal('dashboard-modal');document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+                <i class="fas fa-plus"></i> New Booking
+              </button>
+            </div>
+          </div>
+
+          <!-- Orders Tab -->
+          <div id="dash-tab-orders" style="display:none;">
+            <div id="dash-orders" style="max-height:300px;overflow-y:auto;padding-right:8px;display:flex;flex-direction:column;gap:12px;">
+              <p style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-align:center;padding:20px;">No recent café orders.</p>
+            </div>
+          </div>
+
+          <!-- Rewards & Profile Tab -->
+          <div id="dash-tab-rewards" style="display:none;">
+            <div class="profile-rewards-grid">
+              <div class="profile-reward-card spin-profile-card">
+                <div class="profile-reward-head"><span>🎰</span><div><strong>24H REWARD SPIN</strong><small>1 free spin every 24 hours</small></div></div>
+                <div class="profile-wheel-mini">
+                  <div class="wheel-arrow">▼</div>
+                  <canvas id="spin-canvas" width="260" height="260"></canvas>
+                  <div class="wheel-center">SPIN</div>
+                </div>
+                <button class="btn-spin-now" id="spin-btn" onclick="spinWheel()"><i class="fas fa-dice"></i> SPIN NOW</button>
+                <div id="spin-cooldown" class="reward-cooldown"></div>
+                <div id="spin-result" style="width:100%;min-height:70px;"></div>
+              </div>
+
+              <div class="profile-reward-card birthday-profile-card">
+                <div class="profile-reward-head"><span>🎂</span><div><strong>BIRTHDAY GIFT</strong><small>Verification required before claiming</small></div></div>
+                <div class="birthday-status" id="birthday-status">Add your birthday during registration, then verify it here.</div>
+                <div class="form-group">
+                  <label class="form-label" for="birthday-verify-date">Birthday</label>
+                  <input type="date" class="form-input" id="birthday-verify-date" />
+                </div>
+                <button class="btn btn-outline btn-sm" id="birthday-verify-btn" onclick="verifyBirthday()"><i class="fas fa-shield-alt"></i> VERIFY BIRTHDAY</button>
+                <button class="btn btn-primary btn-sm" id="birthday-claim-btn" onclick="claimBirthdayGift()" style="display:none;margin-top:10px;"><i class="fas fa-gift"></i> CLAIM BIRTHDAY GIFT</button>
+              </div>
+            </div>
+
+            <div class="profile-rewards-summary">
+              <div><span class="profile-summary-value" id="dash-reward-points">0</span><span class="profile-summary-label">NEXUS COINS</span></div>
+              <div><span class="profile-summary-value" id="reward-last-spin">Ready</span><span class="profile-summary-label">SPIN STATUS</span></div>
+              <div><span class="profile-summary-value" id="reward-birthday-status">Unverified</span><span class="profile-summary-label">BIRTHDAY</span></div>
+            </div>
+
+            <div class="dash-section-title" style="margin:20px 0 12px;">🏆 Achievements</div>
+            <div id="dash-achievements" style="max-height:200px;overflow-y:auto;padding-right:8px;display:flex;flex-direction:column;gap:12px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+     AUTH PORTAL (LOGIN / REGISTER)
+══════════════════════════════════════════════ -->
+  <div class="modal-overlay auth-portal-overlay" id="auth-modal">
+    <div class="auth-portal-box">
+      <button class="modal-close" onclick="closeModal('auth-modal')"><i class="fas fa-times"></i></button>
+      
+      <!-- Left Panel: Branding -->
+      <div class="auth-panel-left">
+        <div class="auth-brand-bg"></div>
+        <div class="auth-brand-glow"></div>
+        <div class="auth-brand-content">
+          <div class="auth-logo">⚡ NEXUS<span>ARENA</span></div>
+          <p class="auth-tagline">ENTER THE NEXUS</p>
+          <p class="auth-subtext">Access your immersive gaming profile, track XP, claim rewards, and book premium setups instantly.</p>
+        </div>
+      </div>
+
+      <!-- Right Panel: Forms -->
+      <div class="auth-panel-right">
+        
+        <!-- Toggle -->
+        <div class="auth-toggle-wrapper">
+          <div class="auth-toggle-indicator" id="auth-toggle-indicator"></div>
+          <button class="auth-tab-btn active" data-auth-tab="login">SIGN IN</button>
+          <button class="auth-tab-btn" data-auth-tab="signup">ENLIST</button>
+        </div>
+        
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form-body active" onsubmit="handleLogin(event)">
+          <div class="auth-input-group">
+            <label>Callsign / Email</label>
+            <input type="email" id="login-email" placeholder="gamer@nexus.com" required />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div class="auth-input-group">
+            <label>Access Code</label>
+            <input type="password" id="login-password" placeholder="••••••••" required minlength="8" />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div class="auth-forgot">
+            <a href="#">Forgot Access Code?</a>
+          </div>
+          <div id="login-error" class="auth-error-msg"></div>
+          <button type="submit" class="btn-auth-submit">
+            <span>SYSTEM LOGIN</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="auth-form-body" onsubmit="handleSignup(event)" style="display:none;">
+          <div class="auth-input-group">
+            <label>Callsign (Username)</label>
+            <input type="text" id="signup-username" placeholder="GamerTag_123" required minlength="3" />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div class="auth-input-group">
+            <label>Email Address</label>
+            <input type="email" id="signup-email" placeholder="gamer@nexus.com" required />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div class="auth-input-group">
+            <label>Access Code</label>
+            <input type="password" id="signup-password" placeholder="Min 8 characters" required minlength="8" />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div class="auth-input-group">
+            <label>Birthday (for verified birthday rewards)</label>
+            <input type="date" id="signup-birthday" required />
+            <div class="auth-input-glow"></div>
+          </div>
+          <div id="signup-error" class="auth-error-msg"></div>
+          <button type="submit" class="btn-auth-submit enlist">
+            <span>INITIALIZE ACCOUNT</span> <i class="fas fa-chevron-right"></i>
+          </button>
+        </form>
+        <!-- Social sign-in removed: Nexus Arena uses email/password authentication. -->
+</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleArenaLeaders(){
+      const box=document.getElementById('leaderboard-content'),btn=document.getElementById('see-leaders-btn');
+      if(!box||!btn)return;
+      const open=!box.classList.contains('leaderboard-open');
+      box.classList.toggle('leaderboard-open',open);box.classList.toggle('leaderboard-hidden',!open);box.setAttribute('aria-hidden',String(!open));
+      btn.innerHTML=open?'<i class="fas fa-eye-slash"></i> HIDE LEADERS':'<i class="fas fa-eye"></i> SEE LEADERS';
+      if(open)box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  </script>
+
+  <!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+
+  <!-- Three.js (loaded once here) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/local-middleware.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/three-bg.js"></script>
+  <script src="js/seats.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/tournaments.js"></script>
+  <script src="js/leaderboard.js"></script>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/rewards.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/cafe.js"></script>
+  <script src="js/skins.js"></script>
+
+  <!-- Angular and Bootstrap JS removed -->
+  <!-- Logout Confirm Modal -->
+  <div class="modal-overlay" id="logout-modal">
+    <div class="modal-box" style="max-width:380px;text-align:center;">
+      <button class="modal-close" onclick="closeModal('logout-modal')"><i class="fas fa-times"></i></button>
+      <div style="font-size:3rem;margin-bottom:16px;">&#128275;</div>
+      <h3 style="font-family:var(--font-gaming);font-size:1rem;color:#fff;margin-bottom:8px;">Log Out?</h3>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:24px;">Your session data will be cleared. You can always log back in.</p>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        <button class="btn btn-ghost" onclick="closeModal('logout-modal')">Cancel</button>
+        <button class="btn btn-danger" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Cart Drawer -->
+  <div id="cart-overlay" onclick="closeCartDrawer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9998;backdrop-filter:blur(4px);"></div>
+  <div id="cart-drawer" style="position:fixed;top:0;right:-420px;width:420px;height:100vh;background:linear-gradient(135deg,#0a1628,#071220);border-left:1px solid rgba(0,212,255,0.2);z-index:9999;transition:right 0.4s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,0.8);">
+    <div style="padding:20px 24px 16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="font-family:var(--font-gaming);font-size:1rem;color:var(--neon-cyan);display:flex;align-items:center;gap:8px;">
+        <i class="fas fa-shopping-bag"></i> YOUR CART
+        <span id="cart-count-badge" style="background:var(--neon-purple);color:#fff;border-radius:20px;padding:2px 8px;font-size:0.7rem;">0</span>
+      </h3>
+      <button onclick="closeCartDrawer()" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div id="cart-items-list" style="flex:1;overflow-y:auto;padding:16px 24px;display:flex;flex-direction:column;gap:12px;">
+      <div id="cart-empty-msg" style="text-align:center;padding:40px 20px;color:rgba(255,255,255,0.3);">
+        <i class="fas fa-shopping-bag" style="font-size:3rem;display:block;margin-bottom:12px;"></i>
+        Your cart is empty
+      </div>
+    </div>
+    <div style="padding:16px 24px;border-top:1px solid rgba(255,255,255,0.08);">
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+        <span style="font-family:var(--font-accent);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);font-size:0.85rem;">Total</span>
+        <span id="cart-total-amount" style="font-family:var(--font-gaming);font-size:1.4rem;font-weight:900;color:var(--neon-green);">&#8377;0</span>
+      </div>
+      <button onclick="checkoutCart()" class="btn btn-primary" style="width:100%;justify-content:center;" id="cart-checkout-btn">
+        <i class="fas fa-lock"></i> Checkout
+      </button>
+      <button onclick="clearCart()" class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:8px;">
+        <i class="fas fa-trash"></i> Clear Cart
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Cart Button -->
+  <button id="floating-cart-btn" onclick="openCartDrawer()" style="position:fixed;bottom:24px;left:24px;width:56px;height:56px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));border:none;border-radius:50%;color:#fff;font-size:1.2rem;cursor:pointer;z-index:9000;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(0,212,255,0.5);transition:all 0.3s ease;" title="View Cart">
+    <i class="fas fa-shopping-bag"></i>
+    <span id="cart-float-badge" style="position:absolute;top:-4px;right:-4px;background:var(--neon-pink);color:#fff;border-radius:50%;width:20px;height:20px;font-size:0.65rem;font-weight:700;display:none;align-items:center;justify-content:center;">0</span>
+  </button>
+
+  <!-- In-Game ID Modal (for skins) -->
+  <div class="modal-overlay" id="ingame-modal">
+    <div class="modal-box" style="max-width:420px;">
+      <button class="modal-close" onclick="closeModal('ingame-modal')"><i class="fas fa-times"></i></button>
+      <h3 style="font-family:var(--font-gaming);font-size:1rem;color:var(--neon-purple);margin-bottom:16px;">
+        <i class="fas fa-gamepad"></i> Enter Your In-Game Details
+      </h3>
+      <div id="ingame-skin-info" style="padding:12px;background:rgba(124,58,237,0.1);border-radius:12px;margin-bottom:16px;font-size:0.9rem;color:rgba(255,255,255,0.8);"></div>
+      <div class="form-group"><label class="form-label">Game</label>
+        <select class="form-input form-select" id="ingame-game">
+          <option value="">Select Game</option>
+          <option>Valorant</option><option>CS2</option><option>Fortnite</option>
+          <option>BGMI</option><option>Free Fire</option><option>Apex Legends</option>
+          <option>PUBG PC</option><option>COD: Warzone</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">In-Game ID / Username</label>
+        <input type="text" class="form-input" id="ingame-uid" placeholder="Enter your game ID" />
+      </div>
+      <div class="form-group"><label class="form-label">Confirm In-Game ID</label>
+        <input type="text" class="form-input" id="ingame-uid-confirm" placeholder="Re-enter to confirm" />
+      </div>
+      <div style="text-align:center;">
+        <button class="btn btn-primary" onclick="confirmSkinPurchase()" style="width:100%;justify-content:center;">
+          <i class="fas fa-shopping-bag"></i> Confirm Purchase
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/nexus-ai.js"></script>
+</body>
+</html>

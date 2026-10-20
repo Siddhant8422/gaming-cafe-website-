@@ -1,0 +1,36 @@
+{
+  "completed_on": "2026-09-08",
+  "backend": "Flask + SQLite + JWT",
+  "firebase_removed": true,
+  "static_checks": {
+    "python_compile": true,
+    "javascript_node_check": true,
+    "required_file_integrity": true
+  },
+  "runtime_note": "Browser smoke testing was attempted with Chromium; full authenticated API runtime requires installing backend requirements.",
+  "connected": [
+    "authentication",
+    "dashboard",
+    "bookings",
+    "orders",
+    "rewards_daily_spin",
+    "birthday_verification",
+    "birthday_gift",
+    "seat_availability",
+    "tournament_catalog",
+    "tournament_registration_player_roster",
+    "tournament_brackets",
+    "leaderboard_api",
+    "nexus_ai_chat",
+    "cafe_orders",
+    "store_checkout"
+  ],
+  "hardening": [
+    "server-side tournament capacity and duplicate-registration checks",
+    "server-side order total validation",
+    "escaped tournament UI values",
+    "persistent caf\u00e9 cart",
+    "store product-page cart persistence and cart navigation",
+    "removed broken file:// image references"
+  ]
+}
